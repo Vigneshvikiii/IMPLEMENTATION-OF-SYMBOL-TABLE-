@@ -1,63 +1,77 @@
-<H3>Name: VIGNESH S</H3>
-<H3>Register No: 212223230240 </H3>
-<H3>EX. NO.6</H3>
-<H3>DATE:</H3>
-<H1 ALIGN =CENTER>Heart attack prediction using MLP</H1>
-<H3>Aim:</H3>  To construct a  Multi-Layer Perceptron to predict heart attack using Python
-<H3>Algorithm:</H3>
-Step 1:Import the required libraries: numpy, pandas, MLPClassifier, train_test_split, StandardScaler, accuracy_score, and matplotlib.pyplot.<BR>
-Step 2:Load the heart disease dataset from a file using pd.read_csv().<BR>
-Step 3:Separate the features and labels from the dataset using data.iloc values for features (X) and data.iloc[:, -1].values for labels (y).<BR>
-Step 4:Split the dataset into training and testing sets using train_test_split().<BR>
-Step 5:Normalize the feature data using StandardScaler() to scale the features to have zero mean and unit variance.<BR>
-Step 6:Create an MLPClassifier model with desired architecture and hyperparameters, such as hidden_layer_sizes, max_iter, and random_state.<BR>
-Step 7:Train the MLP model on the training data using mlp.fit(X_train, y_train). The model adjusts its weights and biases iteratively to minimize the training loss.<BR>
-Step 8:Make predictions on the testing set using mlp.predict(X_test).<BR>
-Step 9:Evaluate the model's accuracy by comparing the predicted labels (y_pred) with the actual labels (y_test) using accuracy_score().<BR>
-Step 10:Print the accuracy of the model.<BR>
-Step 11:Plot the error convergence during training using plt.plot() and plt.show().<BR>
+# Ex-2 IMPLEMENTATION-OF-SYMBOL-TABLE
 
-### Program:
-```py
-import numpy as np
-import pandas as pd
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score,classification_report,confusion_matrix
-import matplotlib.pyplot as plt
-data = pd.read_csv('heart.csv')
-X = data.iloc[:, :-1].values
-y = data.iloc[:, -1].values
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-mlp = MLPClassifier(hidden_layer_sizes=(100, 100), max_iter=1000, random_state=42)
-training_loss = mlp.fit(X_train, y_train).loss_curve_
-y_pred = mlp.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
-plt.plot(training_loss)
-plt.title("MLP Training Loss Convergence")
-plt.xlabel("Iteration")
-plt.ylabel("Loss Values")
-plt.show()
-conf_matrix=confusion_matrix(y_test,y_pred)
-classification_rep=classification_report(y_test,y_pred)
-print("Confusion Matrix")
-print(conf_matrix)
-print("Classification Report")
-print(classification_rep)
+# NAME : Vignesh.S
+# REGISTER NUMBER:212223230240
+# AIM :
+To write a C program to implement a symbol table.
+## To write a C program to implement a symbol table.
+# ALGORITHM
+1.	Start the program.
+2.	Get the input from the user with the terminating symbol ‘$’.
+3.	Allocate memory for the variable by dynamic memory allocation function.
+4.	If the next character of the symbol is an operator then only the memory is allocated.
+5.	While reading, the input symbol is inserted into symbol table along with its memory address.
+6.	The steps are repeated till ‘$’ is reached.
+7.	To reach a variable, enter the variable to be searched and symbol table has been checked for corresponding variable, the variable along with its address is displayed as result.
+8.	Stop the program. 
+# PROGRAM
 ```
-### Output:
-### Accuracy
-![image](https://github.com/VigneshkumaranNS/EX-6-NN/assets/119484483/939dcbde-3d4e-47fc-b135-e12737187b72)
-### Iteration vs Loss
-![image](https://github.com/VigneshkumaranNS/EX-6-NN/assets/119484483/ce17e80b-58dd-44b0-ad65-925140f10460)
-### Confusion Matrix
-![image](https://github.com/VigneshkumaranNS/EX-6-NN/assets/119484483/49bc655e-f80d-4830-9de5-c6545feccb7d)
-### Classification Report
-![image](https://github.com/VigneshkumaranNS/EX-6-NN/assets/119484483/9f516995-230c-47f7-a4e7-ba5d494103fd)
-<H3>Results:</H3>
-Thus, an ANN with MLP is constructed and trained to predict the heart attack using python.
+#include<stdio.h>
+#include<conio.h> 
+#include<ctype.h> 
+#include<malloc.h> 
+#include<string.h> 
+#include<math.h>
+void main()
+{
+int i=0,j=0,x=0,n,flag=0; void *p,*add[5];
+char ch,srch,b[15],d[15],c; 
+printf("Enter the Expression terminated by $: ");
+while((c=getchar())!='$')
+{
+b[i]=c; i++;
+}
+n=i-1;
+printf("Given Expression:"); i=0;
+while(i<=n)
+{
+printf("%c",b[i]); i++;
+}
+printf("\n Symbol Table\n"); printf("Symbol\taddr\ttype"); while(j<=n)
+{
+c=b[j]; if(isalpha(toascii(c)))
+{
+if(j==n)
+{
+p=malloc(c); add[x]=p;
+d[x]=c;
+printf("%c\t%d\tidentifier",c,p);
+}
+else
+{
+ch=b[j+1];
+if(ch=='+'||ch=='-'||ch=='*'||ch=="=")
+{
+p=malloc(c); add[x]=p;
+d[x]=c; printf("\n%c\t%d\tidentifier\n",c,p); x++;
+}}} j++;
+}
+printf("\n The symbol is to be searched"); srch=getch();
+for(i=0;i<=x;i++)
+{
+if(srch==d[i])
+{
+printf("\n Symbol Found"); printf("\n%c%s%d\n",srch,"@address",add[i]); flag=1;
+}
+}
+if(flag==0)
+printf("\nSymbol Not Found"); 
+getch();
+}
+```
+# OUTPUT
+![image](https://github.com/Vigneshvikiii/IMPLEMENTATION-OF-SYMBOL-TABLE-/assets/147474483/32ed1c0b-06d5-46e0-9162-9ec51d2ee79f)
+
+
+# RESULT
+### The program to implement a symbol table is executed and the output is verified.
